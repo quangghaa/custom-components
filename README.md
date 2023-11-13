@@ -10,6 +10,12 @@ Currently availabel components:
 
 -   Rating
 
+## Screenshot:
+
+![alt text](https://github.com/quangghaa/custom-components/blob/main/public/rate_us/sreen_rating.png)
+
+![alt text](https://github.com/quangghaa/custom-components/blob/main/public/rate_us/screen_rating-result.png)
+
 ## Rating: Used
 
 Give users ability to rate (0 to 5 stars) among a set of content like: UI/UX, functionalities, customer supports, ...
