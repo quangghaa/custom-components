@@ -11,6 +11,9 @@ Currently availabel components:
 -   Rating
 
 ## Screenshot:
+
+![alt text](https://github.com/quangghaa/custom-components/blob/main/public/rate_us/screen_rating.png)
+
 ![alt text](https://github.com/quangghaa/custom-components/blob/main/public/rate_us/screen_rating-result.png)
 
 ## Rating: Used
