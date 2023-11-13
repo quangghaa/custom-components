@@ -1,27 +1,69 @@
-# React + TypeScript + Vite
+# React + TypeScript + Vite: Custom components
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Require:
 
-Currently, two official plugins are available:
+-   Node version >= 18
+-   Sass
+-   Ant design + Ant design icons library
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Currently availabel components:
 
-## Expanding the ESLint configuration
+-   Rating
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Rating: Used
 
-- Configure the top-level `parserOptions` property like this:
+Give users ability to rate (0 to 5 stars) among a set of content like: UI/UX, functionalities, customer supports, ...
+
+Parameters:
+
+-   `title: string`: Title of the component
+-   `buttonLabel: string`: Label of the submit button
+-   `itemsToRate: RateItemType[]`: List of rating items
+-   `onSubmit: (ratings: { [key: number]: number }) => void`: Handle submit logic
+-   `result: ResultType`: Custom result screen
+
+Exported types:
+
+-   `RateItemType`: Rating item
+-   `ResultType`: Result object
+
+Example of used:
 
 ```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+import { useState } from "react";
+import "./App.css";
+import RateUs, { RateItemType } from "./components/rate_us/RateUs";
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+function App() {
+    const itemsToRate: RateItemType[] = [
+        { key: 1, label: "Giao diện" },
+        { key: 2, label: "Nội dung" },
+        { key: 3, label: "Chất lượng dịch vụ" },
+        {
+            key: 4,
+            label: "Some veery very long content, like this, or like that, or reallly ly ly ly long :D, one two three for five",
+        },
+    ];
+    function handleSubmit(ratings: { [key: number]: number }) {
+        console.log("Ratings: ", ratings);
+    }
+
+    return (
+        <>
+            <div className="demo">
+                <span>This is a demo wrapper</span>
+                <RateUs
+                    title="EPR web rating"
+                    buttonLabel="Submit"
+                    itemsToRate={itemsToRate}
+                    onSubmit={handleSubmit}
+                    // result={{ title: "Thank you !!!" }}
+                />
+            </div>
+        </>
+    );
+}
+
+export default App;
+```
+Enjoy!!
