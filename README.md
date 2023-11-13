@@ -12,7 +12,7 @@ Currently availabel components:
 
 ## Screenshot:
 
-![alt text](https://github.com/quangghaa/custom-components/blob/main/public/rate_us/screen_rating.png)
+![alt text](https://github.com/quangghaa/custom-components/blob/main/public/rate_us/sreen_rating.png)
 
 ![alt text](https://github.com/quangghaa/custom-components/blob/main/public/rate_us/screen_rating-result.png)
 
