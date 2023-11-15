@@ -13,7 +13,7 @@ interface Props {
     itemsToRate: RateItemType[]
     onSubmit: (ratings: { [key: number]: number }) => void;
 }
-const RateUs: React.FC<Props> = (props) => {
+export const RateUs: React.FC<Props> = (props) => {
 
     const defaultTitle = "Rate us"
     const defaultButtonLabel = "Submit"
@@ -81,4 +81,4 @@ const RateUs: React.FC<Props> = (props) => {
         </div>
     )
 }
-export default RateUs
+// export default RateUs

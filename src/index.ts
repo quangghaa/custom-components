@@ -1,0 +1,1 @@
+export {RateUs} from "./components/rate_us/RateUs"

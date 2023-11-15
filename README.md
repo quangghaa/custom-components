@@ -38,7 +38,7 @@ Example of used:
 ```js
 import { useState } from "react";
 import "./App.css";
-import RateUs, { RateItemType } from "./components/rate_us/RateUs";
+import { RateItemType, RateUs } from "@quangghaa/custom-components";
 
 function App() {
     const itemsToRate: RateItemType[] = [
