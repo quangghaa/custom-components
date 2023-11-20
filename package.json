@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "^5.2.6",
+    "@react-pdf/renderer": "^3.1.14",
     "antd": "^5.11.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
@@ -41,6 +42,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "hq-custom-components": "^0.0.5",
+    "html2canvas": "^1.4.1",
     "pathe": "^1.1.1",
     "sass": "^1.69.5",
     "typescript": "^5.0.2",
