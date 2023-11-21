@@ -1,14 +1,12 @@
-import { Button } from "antd"
-import jsPDF from 'jspdf'
-import autoTable, { RowInput } from 'jspdf-autotable'
-import { useEffect, useState } from "react"
+import { RowInput } from "jspdf-autotable";
 
-const FONT_PATH = '../../../../src/assets/font/Open_Sans/static/OpenSans_Condensed-Medium.ttf'
-const TABLE_HEADER: RowInput[] = [
+export const FONT_PATH = '../../../../src/assets/font/Open_Sans/static/OpenSans_Condensed-Medium.ttf'
+export const TABLE_HEADER: RowInput[] = [
     [
         { content: 'TT', rowSpan: 2, styles: { font: "custom", valign: "middle", halign: "center", fontStyle: "bold" } },
         { content: 'Tên SP', rowSpan: 2, styles: { font: "custom", valign: "middle", halign: "center", fontStyle: "bold" } },
         { content: 'Mã SP', rowSpan: 2, styles: { font: "custom", valign: "middle", halign: "center", fontStyle: "bold" } },
+        { content: 'Loại SP', rowSpan: 2, styles: { font: "custom", valign: "middle", halign: "center", fontStyle: "bold" } },
         { content: 'Danh mục', rowSpan: 2, styles: { font: "custom", valign: "middle", halign: "center", fontStyle: "bold" } },
         { content: 'Đơn vị tính', rowSpan: 2, styles: { font: "custom", valign: "middle", halign: "center", fontStyle: "bold" } },
         { content: 'Khối lượng', rowSpan: 2, styles: { font: "custom", valign: "middle", halign: "center", fontStyle: "bold" } },
@@ -24,38 +22,45 @@ const TABLE_HEADER: RowInput[] = [
         { content: 'Doanh thu', colSpan: 1, styles: { font: "custom", valign: "middle", halign: "center", fontStyle: "bold" } },
     ]
 ]
-const PRODUCE_PRODUCT_COLUMNS: any[] = [
+export const PRODUCE_PRODUCT_COLUMNS: any[] = [
     {
+        title: "TT",
         dataIndex: "idView",
         key: "idView",
         width: "50px",
     },
     {
+        title: "Tên SP",
         dataIndex: "name",
         key: "name",
         width: "400px",
     },
     {
+        title: "Mã SP",
         dataIndex: "code",
         key: "code",
         width: "200px",
     },
     {
+        title: "Loại SP",
         dataIndex: "productTypeLabel",
         key: "productTypeLabel",
         width: "200px",
     },
     {
+        title: "Danh mục",
         dataIndex: "productCategory",
         key: "productCategory",
         width: "400px",
     },
     {
+        title: "Đơn vị tính",
         dataIndex: "unit",
         key: "unit",
         width: "150px",
     },
     {
+        title: "Khối lượng",
         dataIndex: "weight",
         key: "weight",
         width: "200px",
@@ -67,11 +72,13 @@ const PRODUCE_PRODUCT_COLUMNS: any[] = [
         dataIndex: '',
         children: [
             {
+                title: "Số lượng",
                 dataIndex: 'domesticQuantity',
                 key: 'domesticQuantity',
                 width: "200px",
             },
             {
+                title: "Doanh thu",
                 dataIndex: 'domesticRevenue',
                 key: 'domesticRevenue',
                 width: "200px",
@@ -85,11 +92,13 @@ const PRODUCE_PRODUCT_COLUMNS: any[] = [
         dataIndex: '',
         children: [
             {
+                title: "Số lượng",
                 dataIndex: 'exportQuantity',
                 key: 'exportQuantity',
                 width: "200px",
             },
             {
+                title: "Doanh thu",
                 dataIndex: 'exportRevenue',
                 key: 'exportRevenue',
                 width: "200px",
@@ -97,17 +106,19 @@ const PRODUCE_PRODUCT_COLUMNS: any[] = [
         ]
     },
     {
+        title: "Tổng doanh thu",
         dataIndex: "totalRevenue",
         key: "totalRevenue",
         width: "200px",
     },
     {
+        title: "Ghi chú",
         dataIndex: "note",
         key: "note",
         width: "200px",
     },
 ];
-const TABLE_DATA = [
+export const TABLE_DATA = [
     {
         idView: 1,
         name: "Product A",
@@ -120,7 +131,7 @@ const TABLE_DATA = [
         domesticRevenue: 5000,
         exportQuantity: 50,
         exportRevenue: 2000,
-        totalRevenue: 7000,
+        totalRevenue: 7000000000000,
         note: "This is a note for Product A.",
         type: "product",
         children: [
@@ -781,103 +792,3 @@ const TABLE_DATA = [
         type: "product"
     },
 ];
-const AutoTable = () => {
-    const [fontBase64, setFontBase64] = useState<string>("")
-    async function getFontBase64() {
-        const fontData = await fetch(FONT_PATH).then((res) => res.arrayBuffer())
-        // Convert ArrayBuffer to base64-encoded string using btoa
-        const _fontBase64 = btoa(new Uint8Array(fontData).reduce((data, byte) => data + String.fromCharCode(byte), ''));
-        setFontBase64(_fontBase64)
-    }
-    useEffect(() => {
-        getFontBase64()
-    }, [])
-
-    function getDataIndexList(columns: any[], remainingIndexList: string[] = []) {
-        const result: string[] = remainingIndexList
-        for (let i = 0; i < columns.length; i++) {
-            const currentCol = columns[i]
-            if ("dataIndex" in currentCol &&
-                currentCol["dataIndex"] !== undefined &&
-                currentCol["dataIndex"].length !== 0) {
-                result.push(currentCol["dataIndex"])
-            } else {
-                // has children
-                const children = columns[i].children
-                getDataIndexList(children, result)
-            }
-        }
-        return result
-    }
-
-    function transformTableData(columns: any[], data: any[]) {
-        const result: any[] = []
-        const indexList = getDataIndexList(columns)
-
-        for (let i = 0; i < data.length; i++) {
-            const currentRow = data[i]
-            const value: any[] = []
-            for (let j = 0; j < indexList.length; j++) {
-                const dataIndex = indexList[j]
-                const item = {
-                    content: currentRow[dataIndex],
-                    styles: { font: "custom" }
-                }
-                value.push(item)
-            }
-            result.push(value)
-
-            if ("children" in currentRow) {
-                const children = currentRow["children"]
-                for (let j = 0; j < children.length; j++) {
-                    const childRow = children[j]
-                    const value: any[] = []
-                    for (let k = 0; k < indexList.length; k++) {
-                        const dataIndex = indexList[k]
-                        const item = {
-                            content: childRow[dataIndex],
-                            styles: { font: "custom" }
-                        }
-                        value.push(item)
-                    }
-                    result.push(value)
-                }
-            }
-        }
-        return result
-    }
-
-    async function generatePDF() {
-        const doc = new jsPDF()
-        if (fontBase64.length === 0) {
-            console.log("font not found")
-            alert("font not found")
-            return
-        }
-        doc.addFileToVFS('OpenSans_Condensed-Light.ttf', fontBase64);
-        doc.addFont('OpenSans_Condensed-Light.ttf', 'custom', 'normal');
-        // Set the font for the document
-        doc.setFont('custom');
-        // Add text using the custom font
-        doc.text('Chào bạn!', 10, 10);
-
-        const pdfTableHeader = TABLE_HEADER
-        const pdfTableData = transformTableData(PRODUCE_PRODUCT_COLUMNS, TABLE_DATA)
-
-        autoTable(doc, {
-            head: pdfTableHeader,
-            body: pdfTableData,
-        })
-
-        // Continue adding content as needed
-
-        // Generate the PDF
-        doc.save('table.pdf');
-    }
-    return (
-        <>
-            <Button onClick={generatePDF}>PDF</Button>
-        </>
-    )
-}
-export default AutoTable

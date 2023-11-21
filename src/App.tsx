@@ -1,23 +1,18 @@
-import { PDFDownloadLink, PDFViewer } from '@react-pdf/renderer'
 import './App.css'
-import MyDocument from './pdf_demo/MyDocument'
-import { Button } from 'antd'
-import { useRef } from 'react';
-import html2canvas from 'html2canvas';
-import FullPage from './pdf_demo/FullPage';
-import { Document, Page, View, Image, pdf } from '@react-pdf/renderer';
-import MyResume from './pdf_demo/Resume';
-import ComplaintForm from './pdf_demo/ComplaintLetter';
-import Resume from './pdf_demo/Resume';
-import Example from './components/pdf_helper/example_table/Example';
-import { useReactToPrint } from 'react-to-print'
-import MyPDF from './components/pdf_helper/example_table/MyPDF';
-import AutoTable from './components/pdf_helper/auto_table/AutoTable';
+import DownloadPDF from './components/pdf_helper/auto_table/DownloadPDF';
+import { PRODUCE_PRODUCT_COLUMNS, TABLE_DATA } from './components/pdf_helper/auto_table/constant';
 
 function App() {
+  const demoTableColumns = PRODUCE_PRODUCT_COLUMNS
+  const demoTableData = TABLE_DATA
+
   return (
     <>
-      <AutoTable />
+      <h1>Download pdf table</h1>
+      <DownloadPDF
+        tableColumns={demoTableColumns}
+        tableData={demoTableData}
+      />
     </>
   )
 }
