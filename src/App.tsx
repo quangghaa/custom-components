@@ -1,6 +1,7 @@
 import './App.css'
 import DownloadPDF from './components/pdf_helper/auto_table/DownloadPDF';
 import { PRODUCE_PRODUCT_COLUMNS, TABLE_DATA } from './components/pdf_helper/auto_table/constant';
+import EditingPDF from './components/pdf_helper/editing/EditingPDF';
 
 function App() {
   const demoTableColumns = PRODUCE_PRODUCT_COLUMNS
@@ -13,6 +14,7 @@ function App() {
         tableColumns={demoTableColumns}
         tableData={demoTableData}
       />
+      <EditingPDF />
     </>
   )
 }

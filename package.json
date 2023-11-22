@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "^5.2.6",
+    "@pdf-lib/fontkit": "^1.1.1",
     "@react-pdf/renderer": "^3.1.14",
     "antd": "^5.11.1",
     "react": "^18.2.0",
@@ -46,6 +47,7 @@
     "jspdf": "^2.5.1",
     "jspdf-autotable": "^3.7.1",
     "pathe": "^1.1.1",
+    "pdf-lib": "^1.17.1",
     "react-to-print": "^2.14.15",
     "sass": "^1.69.5",
     "typescript": "^5.0.2",
