@@ -68,11 +68,12 @@ const EditingPDF = () => {
         // // ---
 
         // Draw the JPG image in the center of the page
+        // 464 114
         lastPage.drawImage(jpgImage, {
             // x: newPage.getWidth() / 2 - jpgDims.width / 2,
             // y: newPage.getHeight() / 2 - jpgDims.height / 2,
-            x: (width / 3) * 2,
-            y: height - 48 - 28 - 80, // height - padding - (one text line + margin line) - image height
+            x: 464,
+            y: height - 114 - 40, // height - padding - (one text line + margin line) - image height
             width: 140,
             height: 80,
         })

@@ -1,0 +1,36 @@
+.custom-pdf-view {
+    position: relative;
+    background-color: #5b5b5b;
+    padding: 16px;
+    border-radius: 8px;
+
+    .pdf-document {
+        position: relative;
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+    &__head {
+        text-align: center;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+
+        .nav-button {
+            color: white;
+        }
+
+        .nav-button:hover {
+            cursor: pointer;
+            color: blue;
+        }
+
+        .page-label {
+            color: white;
+            font-size: 14px;
+            margin: 0 16px;
+        }
+    }
+}

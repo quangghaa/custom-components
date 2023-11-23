@@ -3,3 +3,16 @@
     max-width: 1600px;
     margin: 24px auto;
 }
+
+.demo-sign {
+    width: 300px;
+    height: auto;
+    margin: 0 auto;
+    border: 1px dashed gray;
+    padding: 16px;
+    text-align: center;
+}
+
+.pdf-view-modal .ant-modal-content {
+    padding: 0;
+}
