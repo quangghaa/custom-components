@@ -6,9 +6,7 @@ import {
   TABLE_DATA,
 } from "./components/pdf_helper/auto_table/constant";
 import EditingPDF from "./components/pdf_helper/editing/EditingPDF";
-import PDFViewer from "./components/pdf_helper/modifying/PDFViewer";
-import CustomPDFView from "./components/pdf_helper/modifying_2/CustomPDFView";
-import DemoSign from "./DemoSign";
+import Signing from "./components/pdf_helper/signing/Signing";
 
 function App() {
   const demoTableColumns = PRODUCE_PRODUCT_COLUMNS;
@@ -26,7 +24,7 @@ function App() {
       </Space>
       <Divider />
       <h1>Sign pdf</h1>
-      <DemoSign />
+      <Signing />
     </>
   );
 }

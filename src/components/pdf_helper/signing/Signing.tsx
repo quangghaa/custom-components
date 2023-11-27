@@ -1,11 +1,13 @@
 import { Button, Modal, Space, Upload, message } from "antd";
-import CustomPDFView from "./components/pdf_helper/modifying_2/CustomPDFView";
 import { useState } from "react";
 import { RcFile, UploadProps } from "antd/es/upload";
 import { UploadOutlined } from "@ant-design/icons";
+import type { UploadFile } from 'antd/es/upload/interface';
+import CustomPDFView from "./CustomPDFView";
+import "./style.scss"
 
-const DemoSign = () => {
-  const [fileList, setFileList] = useState<RcFile[]>([]);
+const Signing = () => {
+  const [fileList, setFileList] = useState<UploadFile[]>([]);
   const [signModal, setSignModal] = useState(false);
 
   const props: UploadProps = {
@@ -13,15 +15,20 @@ const DemoSign = () => {
     beforeUpload: (file: RcFile) => {
       const isPDF = file.type === "application/pdf";
       if (!isPDF) {
-        message.error("You can only upload PDF files!");
+        message.error("Only support PDF file");
       } else {
         setFileList([file]);
       }
       return false; // Prevent default upload behavior
     },
+    onChange({ file, fileList }) {
+      if (file.status !== 'uploading') {
+        setFileList(fileList)
+      }
+    },
   };
   return (
-    <div className="demo-sign">
+    <div className="signing">
       <Space direction="vertical">
       <Upload {...props}>
         <Button icon={<UploadOutlined />}>Upload PDF</Button>
@@ -40,9 +47,9 @@ const DemoSign = () => {
         className="pdf-view-modal"
         closeIcon={false}
       >
-        <CustomPDFView pdfFile={fileList} />
+        <CustomPDFView uploadedFile={fileList} />
       </Modal>
     </div>
   );
 };
-export default DemoSign;
+export default Signing;

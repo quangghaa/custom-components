@@ -1,0 +1,67 @@
+.signing {
+    width: 300px;
+    height: auto;
+    margin: 0 auto;
+    border: 1px dashed gray;
+    padding: 16px;
+    text-align: center;
+}
+
+.pdf-view-modal .ant-modal-content {
+    padding: 0;
+}
+
+.pdf-view {
+    position: relative;
+    background-color: #5b5b5b;
+    padding: 16px;
+    border-radius: 8px;
+
+    .error-line {
+        color: #f7d9d9;
+        font-size: 16px;
+    }
+
+    &__head {
+        text-align: center;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+
+        .nav-button {
+            color: white;
+            border: 0;
+            border-radius: 4x;
+            background: #5b5b5b;
+            padding: 4px 8px;
+            transition: color 0.2s;
+            font-size: 14px;
+        }
+
+        .nav-button:hover {
+            cursor: pointer;
+            color: #4096ff;
+        }
+        .nav-button:active {
+            color: blue;
+        }
+        .nav-button:disabled {
+            color: gray;
+            cursor: not-allowed;
+        }
+
+        .page-label {
+            color: white;
+            font-size: 14px;
+            margin: 0 16px;
+        }
+    }
+
+    &__body {
+        position: relative;
+        width: fit-content;
+        margin: 0 auto;
+    }
+}
