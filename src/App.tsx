@@ -5,7 +5,7 @@ import {
   PRODUCE_PRODUCT_COLUMNS,
   TABLE_DATA,
 } from "./components/pdf_helper/auto_table/constant";
-import EditingPDF from "./components/pdf_helper/editing/EditingPDF";
+import EditingPDF from "./components/pdf_helper/editing_removed/EditingPDF";
 import Signing from "./components/pdf_helper/signing/Signing";
 
 function App() {
