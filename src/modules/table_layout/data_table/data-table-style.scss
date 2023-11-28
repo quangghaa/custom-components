@@ -1,0 +1,110 @@
+@import "../colors.scss";
+
+.data-table {
+    
+    &__header {
+        width: 100%;
+        height: 48px;
+        background: $background-white;
+        display: flex;
+        align-items: center;
+        border-radius: 4px;
+
+        .table-name {
+            width: 200px;
+            
+            padding: 0 16px;
+            color: $font-black;
+            font-size: 1rem;
+            display: flex;
+
+            .total-records {
+                background: aliceblue;
+                // padding: 0px 10px;
+                margin-left: 8px;
+                border-radius: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: auto;
+                position: relative;
+                padding: 0 8px 0 18px;
+
+                .dot {
+                    width: 8px;
+                    height: 8px;
+                    background: rgb(111, 186, 252); 
+                    border-radius: 50%;
+                    position: absolute;
+                    left: 6px;
+                }
+            }
+        }
+        .search {
+            flex-grow: 1;
+            min-width: 300px;
+        }
+        .actions {
+            min-width: 300px;
+
+            .add {
+                border: none;
+                padding: 4px;
+                background-color: aliceblue;
+                height: fit-content;
+
+                span {
+                    color: $blue-2;
+                    font-size: 28px;
+                    line-height: normal;
+                }
+            }
+        }
+    }
+    .batch-actions {
+        margin-top: 8px;
+    }
+}
+
+.action-bar {
+    visibility: hidden;
+    .action-button {
+        border-radius: 4px;
+        box-sizing: border-box;
+        padding: 4px 8px;
+        border: none;
+        background: none;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+    .action-button:hover {
+        background: $background-light-gray;
+    }
+}
+.show-action-bar {
+    visibility: visible;
+}
+
+.action-icon {
+    font-size: 14px;
+}
+
+.show-actions {
+    background-color: green;
+}
+
+/* CSS for hover effect */
+.hover-style:hover {
+    background-color: lightgray;
+    /* Add any other hover styles you want */
+  }
+  
+  /* CSS to hide the action icon by default */
+  .hide-icon .action-icon {
+    display: none;
+  }
+  
+  /* CSS to show the action icon on hover */
+  .hover-style:hover .action-icon {
+    display: inline-block;
+  }

@@ -1,0 +1,61 @@
+@import "./colors.scss";
+.header {
+    display: flex;
+    color: $font-white;
+    padding: 0;
+    display: flex;
+    align-items: center;
+
+    .logo {
+        width: 200px;
+        height: 64px;
+        text-align: center;
+        padding: 8px 12px;
+    }
+
+    .notification {
+        height: 40px;
+        width: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        margin-right: 12px;
+    }
+    .notification:hover {
+        background: #14293b;
+        cursor: pointer;
+    }
+
+    .search {
+        flex-grow: 1;
+        min-width: 200px;
+        display: flex;
+        align-items: center;
+    }
+    .user {
+        color: $font-white;
+        height: 48px;
+        max-width: 200px;
+        
+        .login {
+            color: $font-white;
+        }
+        .login:hover {
+            color: $font-white-blur;
+        }
+        .logged-in {
+            padding: 4px 15px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            border-radius: 4px;
+            margin-right: 12px;
+            gap: 8px;
+        }
+        .logged-in:hover {
+            background: #14293b;
+            cursor: pointer;
+        }
+    }
+}

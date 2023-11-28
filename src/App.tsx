@@ -7,6 +7,7 @@ import {
 } from "./components/pdf_helper/auto_table/constant";
 import EditingPDF from "./components/pdf_helper/editing_removed/EditingPDF";
 import Signing from "./components/pdf_helper/signing/Signing";
+import TableLayout from "./modules/table_layout/TableLayout";
 
 function App() {
   const demoTableColumns = PRODUCE_PRODUCT_COLUMNS;
@@ -14,7 +15,7 @@ function App() {
 
   return (
     <>
-      <h1>Download pdf table</h1>
+      {/* <h1>Download pdf table</h1>
       <Space>
         <DownloadPDF
           tableColumns={demoTableColumns}
@@ -24,7 +25,8 @@ function App() {
       </Space>
       <Divider />
       <h1>Sign pdf</h1>
-      <Signing />
+      <Signing /> */}
+      <TableLayout />
     </>
   );
 }
