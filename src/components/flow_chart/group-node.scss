@@ -1,0 +1,14 @@
+.group-node {
+    border: 1px solid black;
+    border-radius: 20px;
+    box-sizing: border-box;
+
+    &__label {
+        text-align: center;
+        font-size: 16px;
+    }
+    &__subtitle {
+        text-align: center;
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,100 @@
+.single-node {
+    width: 160px;
+    height: 160px;
+    border-radius: 20px;
+    border: 1px solid black;
+    padding: 8px;
+    box-sizing: border-box;
+
+    &__label {
+        // border-bottom: 1px solid gray;
+        text-align: center;
+        font-size: 16px;
+    }
+    &__info {
+        margin-top: 8px;
+        font-size: 14px;
+
+        .info-row {
+            display: flex;
+            
+            &__label {
+                width: 42px;
+                font-weight: 550;
+            }
+            &__value {
+                flex-grow: 1;
+            }
+        }
+    }
+
+    &--nginx {
+        background-color: #c9f5e6;
+        border-color: #9cbdb2;
+    }
+
+    &--api {
+        background-color: #c9f1f7;
+        border-color: #97b5b9;
+    }
+
+    &--app-client {
+        background-color: #f9e4cf;
+        border-color: #cdaa8f;
+        color: black; /* Text color */
+    }
+    
+    &--side-chain {
+        background-color: #f5e0ea;
+        border-color: #c7a3b4;
+        color: black; /* Text color */
+    }
+    
+    &--account-state {
+        background-color: #e3e8f4;
+        border-color: #a8b4cc;
+        color: black; /* Text color */
+    }
+    
+    &--tx-manager {
+        background-color: #f6e2f3;
+        border-color: #c9a5c8;
+        color: black; /* Text color */
+    }
+    
+    &--orderer {
+        background-color: #f0edc5;
+        border-color: #c1bd90;
+        color: black; /* Text color */
+    }
+
+    &--wallet {
+        background-color: #f3d9e8;
+        border-color: #c8a3b4;
+        color: black; /* Text color */
+    }
+    
+    &--gstate {
+        background-color: #e3f4e2;
+        border-color: #a8cca5;
+        color: black; /* Text color */
+    }
+    
+    &--finalize {
+        background-color: #f2e5d0;
+        border-color: #c6b090;
+        color: black; /* Text color */
+    }
+    
+    &--peer {
+        background-color: #e1ebf6;
+        border-color: #a5b9cc;
+        color: black; /* Text color */
+    }
+
+    &--chaincode {
+        background-color: #afebac;
+        border-color: #7ba379;
+        color: black; /* Text color */
+    }
+}
