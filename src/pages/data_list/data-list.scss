@@ -1,0 +1,39 @@
+.item-info {
+    width: 80px;
+}
+
+.list-header {
+    display: flex;
+    width: 100%;
+    font-weight: bold;
+
+    .meta-item {
+        flex-grow: 1;
+    }
+    
+    .item {
+        width: 80px;
+        
+    }
+
+    .actions-item {
+        margin-left: 48px;
+        width: 78px;
+    }
+}
+
+.filter-bar {
+    display: flex;
+    align-items: center;
+    margin-top: 12px;
+
+    &__label {
+        font-size: 16px;
+        font-weight: bold;
+        padding-right: 20px;
+    }
+
+    &__content {
+        
+    }
+}

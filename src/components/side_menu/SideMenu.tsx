@@ -8,6 +8,7 @@ import {
 } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { Menu } from "antd";
+import { useNavigate } from "react-router-dom";
 
 type MenuItem = Required<MenuProps>["items"][number];
 
@@ -28,29 +29,38 @@ function getItem(
 }
 
 const items: MenuItem[] = [
-  getItem("Option 1", "1", <PieChartOutlined />),
-  getItem("Option 2", "2", <DesktopOutlined />),
-  getItem("Option 3", "3", <ContainerOutlined />),
+  getItem("PDF", "1", <PieChartOutlined />),
+  getItem("Admin tool UI", "2", <DesktopOutlined />),
 
-  getItem("Navigation One", "sub1", <MailOutlined />, [
-    getItem("Option 5", "5"),
-    getItem("Option 6", "6"),
-    getItem("Option 7", "7"),
-    getItem("Option 8", "8"),
+  getItem("Views", "view", <MailOutlined />, [
+    getItem("Table", "v1"),
+    getItem("List", "v2"),
   ]),
 
-  getItem("Navigation Two", "sub2", <AppstoreOutlined />, [
-    getItem("Option 9", "9"),
-    getItem("Option 10", "10"),
+  // getItem("Navigation Two", "sub2", <AppstoreOutlined />, [
+  //   getItem("Option 9", "9"),
+  //   getItem("Option 10", "10"),
 
-    getItem("Submenu", "sub3", null, [
-      getItem("Option 11", "11"),
-      getItem("Option 12", "12"),
-    ]),
-  ]),
+  //   getItem("Submenu", "sub3", null, [
+  //     getItem("Option 11", "11"),
+  //     getItem("Option 12", "12"),
+  //   ]),
+  // ]),
 ];
 
+const URLs = new Map([
+  ["1", "/pdf"],
+  ["2", "/admin-tool"],
+  ["v1", "/table-view"],
+  ["v2", "/list-view"]
+])
+
 const SideMenu: React.FC = () => {
+  const navigate = useNavigate()
+  
+  const handleMenuClick: MenuProps["onClick"] = (e) => {
+    navigate(URLs.get(e.key) ?? "/")
+  };
   return (
     <div style={{ width: "auto" }}>
       <Menu
@@ -59,6 +69,7 @@ const SideMenu: React.FC = () => {
         mode="inline"
         theme="dark"
         items={items}
+        onClick={handleMenuClick}
       />
     </div>
   );

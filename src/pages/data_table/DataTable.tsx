@@ -9,6 +9,7 @@ import Header from "./Header";
 import BatchActions from "./BatchActions";
 import { DataType } from "./types";
 import { buildColumns } from "./TableColumns";
+import { useNavigate } from "react-router-dom";
 
 interface TableParams {
   pagination?: TablePaginationConfig;
@@ -34,6 +35,7 @@ const DataTable: React.FC = () => {
   });
   const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
   const [hoveredRowId, setHoveredRowId] = useState("");
+  const navigate = useNavigate()
 
   const fetchData = () => {
     setLoading(true);
@@ -89,12 +91,16 @@ const DataTable: React.FC = () => {
     onChange: onSelectChange,
   };
 
+  const onViewDetail = (rowId: string, record: any) => {
+    navigate("/table-view/detail", {state: record})
+  }
+
   return (
     <div className="data-table">
       <Header />
       <BatchActions selectedRowKeys={selectedRowKeys} />
       <Table
-        columns={buildColumns(hoveredRowId)}
+        columns={buildColumns(hoveredRowId, onViewDetail)}
         rowSelection={rowSelection}
         rowKey={(record) => record.login.uuid}
         dataSource={data}

@@ -3,16 +3,20 @@ import { Space } from "antd";
 import { ColumnsType } from "antd/es/table";
 import { DataType } from "./types";
 import classNames from "classnames";
+import { useNavigate } from "react-router-dom";
 
-const renderActionColumn = (hoveredRowId: string, record: any) => {
+const renderActionColumn = (hoveredRowId: string, record: any, onViewDetail: (rowId: string, record: any) => void) => {
   const actionBarCls = classNames({
     "action-bar": true,
     "show-action-bar": record?.login?.uuid === hoveredRowId,
   });
+  const handleViewDetail = () => {
+    onViewDetail(hoveredRowId, record)
+  }
   return (
     <div className={actionBarCls}>
       <Space>
-        <button className="action-button">
+        <button className="action-button" onClick={handleViewDetail}>
           <EyeOutlined className="action-icon" />
         </button>
         <button className="action-button">
@@ -28,7 +32,8 @@ const renderActionColumn = (hoveredRowId: string, record: any) => {
   );
 };
 
-export const buildColumns = (hoveredRowId: string) => {
+export const buildColumns = (hoveredRowId: string, onViewDetail: (rowId: string, record: any) => void) => {
+  
   const columns: ColumnsType<DataType> = [
     {
       title: "No.",
@@ -58,7 +63,7 @@ export const buildColumns = (hoveredRowId: string) => {
     },
     {
       dataIndex: "#",
-      render: (_, record) => renderActionColumn(hoveredRowId, record),
+      render: (_, record) => renderActionColumn(hoveredRowId, record, onViewDetail),
     },
   ];
   return columns;

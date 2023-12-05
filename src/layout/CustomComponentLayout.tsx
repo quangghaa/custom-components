@@ -1,3 +1,5 @@
+import "./custom-component-layout.scss";
+
 import React, { useState } from "react";
 import {
   BellOutlined,
@@ -15,11 +17,10 @@ import {
   Row,
   Statistic,
 } from "antd";
-import SideMenu from "./SideMenu";
-import "./table_layout_style.scss";
-import logo from "../../assets/logo3.webp";
+import logo from "../assets/logo3.webp";
 import CountUp from 'react-countup';
-import DataTable from "./data_table/DataTable";
+import SideMenu from "@/components/side_menu/SideMenu";
+import { Outlet } from "react-router-dom"
 
 const { Header, Content, Sider } = Layout;
 
@@ -149,7 +150,7 @@ const GeneralView = () => {
   );
 };
 
-const TableLayout: React.FC = () => {
+const CustomComponentLayout: React.FC = () => {
   return (
     <Layout>
       <Header className="header">
@@ -173,11 +174,12 @@ const TableLayout: React.FC = () => {
               minHeight: 280,
             }}
           >
-            <DataTable />
+            {/* <DataTable /> */}
+            <Outlet />
           </Content>
         </Layout>
       </Layout>
     </Layout>
   );
 };
-export default TableLayout;
+export default CustomComponentLayout;

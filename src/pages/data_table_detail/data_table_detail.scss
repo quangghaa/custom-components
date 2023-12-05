@@ -1,0 +1,16 @@
+.data-table-detail {
+
+    .detail-row {
+        display: flex;
+        margin-bottom: 1rem;
+
+        &__label {
+            width: 25%;
+            color: #6c757d;
+        }
+        &__value {
+            flex-grow: 1;
+        }
+    }
+
+}
