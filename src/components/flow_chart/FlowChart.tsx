@@ -13,10 +13,16 @@ import SingleNode from "./SingleNode.js";
 import GroupNode from "./GroupNode.js";
 import { initialNodes } from "./nodes.js";
 import { initialEdges } from "./edges.js";
+import NormalEdge from "./CustomEdge.js";
 
 const nodeTypes = {
   singleNode: SingleNode,
   groupNode: GroupNode,
+  normalEdge: NormalEdge
+};
+
+const edgeTypes = {
+  normalEdge: NormalEdge
 };
 
 const FlowChart = () => {
@@ -37,6 +43,7 @@ const FlowChart = () => {
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
         nodeTypes={nodeTypes}
+        edgeTypes={edgeTypes}
       >
         <Controls />
         <MiniMap />

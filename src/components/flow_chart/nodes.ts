@@ -4,6 +4,7 @@ export const initialNodes = [
       type: "groupNode",
       data: {
         label: "Unknown group",
+        nodeType: "nginx",
         size: {width: 500, height: 600},
         ip: "10.10.10.255",
         port: "8101",
@@ -84,6 +85,7 @@ export const initialNodes = [
       type: "groupNode",
       data: {
         label: "Appclient",
+        nodeType: "app-client",
         size: {width: 300, height: 900},
         ip: "10.10.10.255",
         port: "8101",
@@ -153,6 +155,7 @@ export const initialNodes = [
       type: "groupNode",
       data: {
         label: "Sidechain",
+        nodeType:"side-chain",
         size: {width: 300, height: 900},
         ip: "10.10.10.255",
         port: "8101",
@@ -221,6 +224,7 @@ export const initialNodes = [
       type: "groupNode",
       data: {
         label: "Account state",
+        nodeType: "account-state",
         size: {width: 500, height: 1400},
         ip: "10.10.10.255",
         port: "8101",
@@ -236,6 +240,7 @@ export const initialNodes = [
       type: "groupNode",
       data: {
         label: "",
+        nodeType: "account-state",
         size: {width: 400, height: 600},
       },
       position: { x: 50, y: 62 },
@@ -247,6 +252,7 @@ export const initialNodes = [
       type: "groupNode",
       data: {
         label: "",
+        nodeType: "account-state",
         size: {width: 400, height: 600},
       },
       position: { x: 50, y: 685 },
@@ -339,6 +345,7 @@ export const initialNodes = [
       type: "groupNode",
       data: {
         label: "Txmanager",
+        nodeType: "tx-manager",
         size: {width: 300, height: 900},
         ip: "10.10.10.255",
         port: "8101",
@@ -408,6 +415,7 @@ export const initialNodes = [
       type: "groupNode",
       data: {
         label: "wallet",
+        nodeType: "wallet",
         size: {width: 300, height: 600},
         ip: "10.10.10.255",
         port: "8101",
@@ -451,6 +459,7 @@ export const initialNodes = [
       type: "groupNode",
       data: {
         label: "gstate",
+        nodeType: "gstate",
         size: {width: 300, height: 800},
         ip: "10.10.10.255",
         port: "8101",
@@ -507,6 +516,7 @@ export const initialNodes = [
       type: "groupNode",
       data: {
         label: "Finalize",
+        nodeType: "finalize",
         size: {width: 300, height: 600},
         ip: "10.10.10.255",
         port: "8101", 
@@ -550,6 +560,7 @@ export const initialNodes = [
       type: "groupNode",
       data: {
         label: "Fabric",
+        nodeType: "fabric",
         size: {width: 1800, height: 4100},
         ip: "10.10.10.255",
         port: "8101",

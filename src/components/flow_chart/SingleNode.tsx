@@ -56,11 +56,11 @@ const SingleNode = (props: any) => {
             <span className="info-row__value">{data.port}</span>
           </div>
         )}
-        <div>
+        {/* <div>
           <span>x: {xPos.toFixed(0)}</span>
           <br />
           <span>y: {yPos.toFixed(0)}</span>
-        </div>
+        </div> */}
       </div>
       {
         source && Array.isArray(source) && source.length > 0 && 

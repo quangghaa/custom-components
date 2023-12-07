@@ -11,4 +11,62 @@
         text-align: center;
         font-size: 14px;
     }
+
+    &--nginx {
+        border-color: #9cbdb2;
+    }
+
+    &--api {
+        border-color: #97b5b9;
+    }
+
+    &--app-client {
+        border-color: #cdaa8f;
+        color: black; /* Text color */
+    }
+    
+    &--side-chain {
+        border-color: #c7a3b4;
+        color: black; /* Text color */
+    }
+    
+    &--account-state {
+        border-color: #a8b4cc;
+        color: black; /* Text color */
+    }
+    
+    &--tx-manager {
+        border-color: #c9a5c8;
+        color: black; /* Text color */
+    }
+    
+    &--orderer {
+        border-color: #c1bd90;
+        color: black; /* Text color */
+    }
+
+    &--wallet {
+        border-color: #c8a3b4;
+        color: black; /* Text color */
+    }
+    
+    &--gstate {
+        border-color: #a8cca5;
+        color: black; /* Text color */
+    }
+    
+    &--finalize {
+        border-color: #c6b090;
+        color: black; /* Text color */
+    }
+    
+    &--peer {
+        border-color: #a5b9cc;
+        color: black; /* Text color */
+    }
+
+    &--chaincode {
+        border-color: #7ba379;
+        color: black; /* Text color */
+    }
 }

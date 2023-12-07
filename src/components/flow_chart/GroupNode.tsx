@@ -44,11 +44,11 @@ const GroupNode = (props: any) => {
       {data.ip && <div className="group-node__subtitle">{data.ip}</div>}
       {data.port && <div className="group-node__subtitle">{data.port}</div>}
 
-      <div>
+      {/* <div>
         <span>x: {Number(xPos).toFixed(0)}</span>
         <br />
         <span>y: {yPos.toFixed(0)}</span>
-      </div>
+      </div> */}
       {
         source && Array.isArray(source) && source.length > 0 && 
         <>
