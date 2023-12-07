@@ -6,6 +6,8 @@ import { UserItem } from "./types";
 import { ContainerHeight, fakeDataUrl } from "./constant";
 import { spaceChildren } from "antd/es/button";
 import Header from "./Header";
+import classNames from "classnames";
+import { CloseOutlined, DeleteOutlined, EditOutlined, MoreOutlined } from "@ant-design/icons";
 
 const ListHeader = () => {
   return (
@@ -20,15 +22,59 @@ const ListHeader = () => {
   );
 };
 
+const SelectedItemBar = (props: any) => {
+  const {setSelectedId} = props
+  const handleClearItem = () => {
+    setSelectedId && setSelectedId(-1)
+  }
+  return (
+    <div className="selected-item-bar">
+      <div className="button-wrapper">
+        <div className="icon-button" role="button" onClick={handleClearItem}>
+        <CloseOutlined />
+        </div>
+      </div>
+      <div className="label">
+        1 item selected
+      </div>
+      <div className="button-wrapper">
+        <div className="icon-button" role="button">
+        <EditOutlined />
+        </div>
+      </div>
+      <div className="button-wrapper">
+        <div className="icon-button" role="button">
+        <DeleteOutlined />
+        </div>
+      </div>
+      <div className="button-wrapper">
+        <div className="icon-button" role="button">
+        <MoreOutlined />
+        </div>
+      </div>
+    </div>
+  )
+}
+
 const DataList = () => {
   const [data, setData] = useState<UserItem[]>([]);
+  const [selectedId, setSelectedId] = useState(-1)
 
+  const generateId = (currentData: any, newData: any) => {
+    const index = currentData.length ?? 0 
+    const newDataWithId = newData.map((item: any, i: number) => {
+      return {...item, id: index + i+1}
+    })
+    return currentData.concat(newDataWithId)
+  }
   const appendData = () => {
     fetch(fakeDataUrl)
       .then((res) => res.json())
       .then((body) => {
-        setData(data.concat(body.results));
-        message.success(`${body.results.length} more items loaded!`);
+        
+        setData(generateId(data, body.results))
+        // setData(data.concat(body.results));
+        // message.success(`${body.results.length} more items loaded!`);
       });
   };
 
@@ -47,12 +93,16 @@ const DataList = () => {
     console.log(`selected ${value}`);
   };
 
+  const handleSelectItem = (item: any) => {
+    setSelectedId(item.id)
+  }
+
   return (
     <>
       <Header />
-      <div style={{padding: "0 16px"}}>
+      <div className="data-list">
         <div className="filter-bar">
-          <div className="filter-bar__label">Loc</div>
+          <div className="filter-bar__label">Filter</div>
           <div className="filter-bar__content">
             <Space wrap>
               <Select
@@ -60,10 +110,9 @@ const DataList = () => {
                 style={{ width: 120 }}
                 onChange={handleChange}
                 options={[
-                  { value: "jack", label: "Jack" },
-                  { value: "lucy", label: "Lucy" },
-                  { value: "Yiminghe", label: "yiminghe" },
-                  { value: "disabled", label: "Disabled", disabled: true },
+                  { value: "male", label: "Male" },
+                  { value: "female", label: "Female" },
+                  { value: "other", label: "Other" },
                 ]}
               />
               <Select
@@ -71,10 +120,10 @@ const DataList = () => {
                 style={{ width: 120 }}
                 onChange={handleChange}
                 options={[
-                  { value: "jack", label: "Jack" },
-                  { value: "lucy", label: "Lucy" },
-                  { value: "Yiminghe", label: "yiminghe" },
-                  { value: "disabled", label: "Disabled", disabled: true },
+                  { value: "18", label: "18" },
+                  { value: "19", label: "19" },
+                  { value: "20", label: "20" },
+                  { value: "21", label: "21" },
                 ]}
               />
               <Select
@@ -82,15 +131,15 @@ const DataList = () => {
                 style={{ width: 120 }}
                 onChange={handleChange}
                 options={[
-                  { value: "jack", label: "Jack" },
-                  { value: "lucy", label: "Lucy" },
-                  { value: "Yiminghe", label: "yiminghe" },
-                  { value: "disabled", label: "Disabled", disabled: true },
+                  { value: "active", label: "Active" },
+                  { value: "inactive", label: "Inactive" },
+                  { value: "invisible", label: "Invisible" },
                 ]}
               />
             </Space>
           </div>
         </div>
+        {selectedId !== -1 && <SelectedItemBar setSelectedId={setSelectedId} />}
         <List header={<ListHeader />}>
           <VirtualList
             data={data}
@@ -106,6 +155,8 @@ const DataList = () => {
                   <a key="list-edit">edit</a>,
                   <a key="list-more">more</a>,
                 ]}
+                onClick={() => handleSelectItem(item)}
+                className={classNames({highlight: item.id === selectedId})}
               >
                 <List.Item.Meta
                   avatar={<Avatar src={item.picture.large} />}

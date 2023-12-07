@@ -1,4 +1,5 @@
 export interface UserItem {
+    id: number;
     email: string;
     gender: string;
     name: {
