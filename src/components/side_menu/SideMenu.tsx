@@ -35,6 +35,8 @@ const items: MenuItem[] = [
   getItem("Views", "view", <MailOutlined />, [
     getItem("Table", "v1"),
     getItem("List", "v2"),
+    getItem("Collapse", "v3"),
+    getItem("Card", "v4"),
   ]),
 
   // getItem("Navigation Two", "sub2", <AppstoreOutlined />, [
@@ -52,7 +54,9 @@ const URLs = new Map([
   ["1", "/pdf"],
   ["2", "/admin-tool"],
   ["v1", "/table-view"],
-  ["v2", "/list-view"]
+  ["v2", "/list-view"],
+  ["v3", "/collapse-view"],
+  ["v4", "/card-view"]
 ])
 
 const SideMenu: React.FC = () => {

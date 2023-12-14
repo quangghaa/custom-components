@@ -8,6 +8,7 @@ import PDF from "./pages/PDF";
 import AdminToolUI from "./pages/AdminToolUI";
 import DataList from "./pages/data_list/DataList";
 import DataTableDetail from "./pages/data_table_detail/DataTableDetail";
+import DataCollapse from "./pages/data_collapse/DataCollapse";
 
 const App: React.FC = () => {
   return (
@@ -20,6 +21,7 @@ const App: React.FC = () => {
           <Route path="/table-view" element={<DataTable />} />
           <Route path="/table-view/detail" element={<DataTableDetail />} />
           <Route path="/list-view" element={<DataList />} />
+          <Route path="/collapse-view" element={<DataCollapse />} />
         </Route>
       </Routes>
 
