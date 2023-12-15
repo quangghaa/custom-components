@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import DataTable from "./pages/data_table/DataTable";
 import "./App.scss";
 import CustomComponentLayout from "./layout/CustomComponentLayout";
@@ -9,6 +9,7 @@ import AdminToolUI from "./pages/AdminToolUI";
 import DataList from "./pages/data_list/DataList";
 import DataTableDetail from "./pages/data_table_detail/DataTableDetail";
 import DataCollapse from "./pages/data_collapse/DataCollapse";
+import DataCard from "./pages/data_card/DataCard";
 
 const App: React.FC = () => {
   return (
@@ -22,9 +23,9 @@ const App: React.FC = () => {
           <Route path="/table-view/detail" element={<DataTableDetail />} />
           <Route path="/list-view" element={<DataList />} />
           <Route path="/collapse-view" element={<DataCollapse />} />
+          <Route path="/card-view" element={<DataCard />} />
         </Route>
       </Routes>
-
     </BrowserRouter>
   );
 };
